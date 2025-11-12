@@ -6,13 +6,28 @@ round_corner = 15;
 //color("green")
 //cube([129, 129, 1], center = true);
 
-frame_square();
+nozzle();
+
+module nozzle() {
+    hull() {
+    frame_square();
+    translate([0, 0, 120])
+    frame_ring();
+}
+}
 //hull() {
 //    frame_square();
 //    translate([0, 0, 120])
 //    cylinder(d=25, h=1, center = true);
 //}
 
+module frame_ring() {
+    difference() {
+        cylinder(d=25, h=1, center = true);
+        color("red")
+        cylinder(d=25-6, h=5, center = true);
+}
+}
 
 module frame_square() {
 difference() {
