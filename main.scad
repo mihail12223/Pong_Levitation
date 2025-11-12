@@ -6,7 +6,21 @@ round_corner = 15;
 //color("green")
 //cube([129, 129, 1], center = true);
 
-nozzle();
+difference() {
+    nozzle_kit();
+    translate([0, 0, 120])
+    cylinder(d = 25-4, h = 15, center = true);
+}
+
+module nozzle_kit() {
+difference() {
+    nozzle();
+    translate([0, 0, -1])
+    scale([0.95, 0.95, 0.95])
+    color("red")
+    nozzle();
+}
+}
 
 module nozzle() {
     hull() {
