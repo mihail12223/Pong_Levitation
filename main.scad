@@ -1,3 +1,4 @@
+use <nozzle.scad>
 echo("Работа Емельянова Михаила");
 $fn=64;
 round_corner = 15;
@@ -6,10 +7,17 @@ round_corner = 15;
 //color("green")
 //cube([129, 129, 1], center = true);
 
+difference() {
+nozzle_set();
+translate([0,0,120])
+cylinder(d = 24, h = 50, center = true);
+}
 
+module nozzle_set() {
 nozzle_kit();
 translate([0, 0, 120+20/2])
 trumpet();
+}
 
 module trumpet() {
     difference() {
